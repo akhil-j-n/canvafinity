@@ -1,345 +1,342 @@
 <!DOCTYPE html>
 
-<html class="scroll-smooth bg-black text-white" lang="en"><head>
+<html class="h-full w-full" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Films — Akhil J Narayanan | Canvafinity Pictures</title>
-<!-- Tailwind CSS v3 -->
+<title>Canvafinity Pictures</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+            sans: ['"Helvetica Neue"', 'Helvetica', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            mono: ['"Helvetica Neue"', 'Helvetica', '-apple-system', 'sans-serif'],
           },
           letterSpacing: {
-            'widest-plus': '0.35em',
-            'editorial': '0.2em',
-          },
-          colors: {
-            noir: '#000000',
-            carbon: '#0c0c0c',
-            subtle: '#8a8a8a',
-            faint: '#2a2a2a',
+            'tightest': '-0.02em',
+            'swiss-sm': '0.12em',
+            'swiss': '0.22em',
+            'swiss-wide': '0.32em',
+            'widest-xl': '0.45em',
           }
         }
       }
     }
   </script>
-<!-- Typography & Global Behavior Styles -->
-<style data-purpose="typography">
-    * {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+<style>
+    /* Swiss modernist styling defaults */
+    body, html {
+      font-family: "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-    ::selection {
-      background-color: #ffffff;
-      color: #000000;
+
+    /* Dissolve in on page load */
+    @keyframes pageDissolve {
+      0% {
+        opacity: 0;
+        filter: blur(8px);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0px);
+      }
     }
-  </style>
-<!-- Layout & Transition Styles -->
-<style data-purpose="transitions">
-    .fade-layer {
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+    .dissolve-in {
+      animation: pageDissolve 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    .carousel-slide {
-      transition: opacity 0.7s ease, transform 0.7s ease;
+
+    /* Subtle Ken Burns zoom effect for cinematic carousel slides */
+    @keyframes slowZoom {
+      0% { transform: scale(1.0); }
+      100% { transform: scale(1.06); }
     }
-    .hide-scrollbar::-webkit-scrollbar {
-      display: none;
+
+    .animate-slow-zoom {
+      animation: slowZoom 16s ease-out infinite alternate;
     }
-    .hide-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+
+    /* Clean film grain overlay */
+    .film-grain {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+      background-size: 3px 3px;
+    }
+
+    /* Flat borderless menu dissolve transition */
+    .menu-dissolve {
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: none !important;
     }
   </style>
 </head>
-<body class="bg-noir text-white min-h-screen relative overflow-x-hidden selection:bg-white selection:text-black font-sans opacity-0 transition-opacity duration-1000" id="body-root">
-<!-- BEGIN: LeftMiddleMenuToggle -->
-<!-- Persistent middle-left trigger identical to home architecture -->
-<aside aria-label="Main Navigation Trigger" class="fixed left-6 md:left-10 top-1/2 -translate-y-1/2 z-50 pointer-events-auto">
-<button aria-controls="nav-overlay" aria-expanded="false" aria-label="Open Navigation Menu" class="group p-3 flex flex-col items-center justify-center gap-1.5 focus:outline-none focus:ring-1 focus:ring-white/40 cursor-pointer" data-purpose="menu-toggle" id="menu-trigger-btn">
-<span class="w-7 h-[1px] bg-white group-hover:w-9 transition-all duration-300"></span>
-<span class="w-7 h-[1px] bg-white group-hover:w-9 transition-all duration-300"></span>
-<span class="w-7 h-[1px] bg-white group-hover:w-9 transition-all duration-300"></span>
+<body class="h-full w-full bg-black text-white font-sans overflow-hidden select-none relative">
+<!-- Cinematic Background Visuals (Carousel with Requested Cinematic Stills) -->
+<div class="absolute inset-0 z-0 overflow-hidden bg-black pointer-events-none">
+<!-- Film slide 1 (Active) -->
+<div class="absolute inset-0 transition-opacity duration-1000 opacity-100" id="slide-1">
+<img alt="Cinematic Noir Film Still" class="w-full h-full object-cover animate-slow-zoom brightness-[0.72] contrast-[1.12]" src="https://lh3.googleusercontent.com/aida/AEtjO1WWAZngeH9VbeIuIdsIHWoBFr5HutIUaiVgeEmFblmG6vTcdU_hHh8V4r6WdiZfxPaO7dBQjFRWlKfHjKvyWGFn2-pALPUC0kgvVCLofzHg3rqnyi1M6h7RnmkVFHN_SNOK15D6uRkBebryj3B_WGWEejOKs_3N3Mc5F2N3DUhN5cXwOmpGZrcQVVl1MndQg3oqtcsM7LDC7stUSnBcqaGWJHRzPhIKY5ZzWoLCVfbphWWQlPzliCj_aw"/>
+</div>
+<!-- Film slide 2 -->
+<div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide-2">
+<img alt="Golden Hour Mist Still" class="w-full h-full object-cover animate-slow-zoom brightness-[0.68] contrast-[1.15]" src="https://lh3.googleusercontent.com/aida/AEtjO1X4kwAXa-6YVXwF6LXegR1_G_R592CACMQ7YqccRQpV34XFiOKUt0MMvj4Dya5oUpbdwcYcj8w9A54UhnXaW5CAD2_Rq2o9n0e-0tbRc1l0xNMfV0LiSJvMQK1HAi-snzAEF34vWy8chfiIU3JmIv_d1vdoPjIltZhCjlCjcwd8oWWxNlLe8a4TrXzbVRMQ3LweV7-dcKHBg8S3UALcdGKd9Q4eg5inCieDNzKg6Vlsu1DvaKkOZ_jyVQ"/>
+</div>
+<!-- Film slide 3 -->
+<div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide-3">
+<img alt="Urban Rain Night Still" class="w-full h-full object-cover animate-slow-zoom brightness-[0.70] contrast-[1.12]" src="https://lh3.googleusercontent.com/aida/AEtjO1Wh1EODO5AxeH_s3zLYeHwXsDOf-Wic_m1YSYhdPbpD_yWWdfgDtCiqoOCi5pMrBKr7Sc7EwMuzZ0S-ZuDZUx9Jfpi5HgccJPDcv9VQCEpYmWdIx5rVbievBwB5dP_l4hh8bh4-gegZsjBPL8cCvdGU7qLUcSCaFqAC4W77M4x6lx5QPbRq_FeEUFGSMvA9saNmTQfbhKDFK-cYZwPKlzKOCUXV3DjBIVPTogs2DChc7XKtQMpX2x8_ovU"/>
+</div>
+<!-- Cinematic Vignette & Letterbox Grading -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/75"></div>
+<div class="absolute inset-0 bg-radial from-transparent via-black/25 to-black/90"></div>
+<div class="absolute inset-0 film-grain opacity-30 mix-blend-overlay"></div>
+<!-- Top & Bottom Anamorphic Film Bars strictly without text -->
+<div class="absolute top-0 inset-x-0 h-10 md:h-14 bg-black/90 z-10"></div>
+<div class="absolute bottom-0 inset-x-0 h-10 md:h-14 bg-black/90 z-10"></div>
+</div>
+<!-- Main Dissolve Container -->
+<div class="relative z-20 w-full h-full flex flex-col justify-between dissolve-in p-8 md:p-14 pointer-events-none">
+<!-- Top Header Spacer (Clean - strictly no text on top) -->
+<header class="w-full pt-8 pointer-events-auto flex items-center justify-between">
+<div></div>
+<div></div>
+</header>
+<!-- Center Stage: Minimalist Logo with Hover Concept Reveal -->
+<main class="w-full flex-1 flex flex-col items-center justify-center pointer-events-auto">
+<div class="group relative cursor-pointer flex flex-col items-center justify-center p-6">
+<!-- Primary Logo State with https://lh3.googleusercontent.com/aida-public/AB6AXuAoSZDEC91UsrIp3RNPz9MO40FX7i29zT443UYZrw2p4eWX1gpX1m9xCIIaV02WJ-i-EKrRFlKr0pMY2UkYQRUCKuxrxa4IWQpzgK28HFAEwfPkJZBeC4modZIT2D_82dwtrjVDGYbqR5N-I4limlocZkH_U8qmsQIFXewFtHySbIPWBRpunr63dwJkqJTYunjopmUlXUYXpFly-pE45Syp6mzbaukJTKdzPrNCcOCk34-9bmYqYyxqTpLxsdRD5T2OVw -->
+<div class="relative transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 group-hover:blur-[2px] flex flex-col items-center">
+<div class="w-48 h-36 md:w-72 md:h-52 relative flex items-center justify-center">
+<img alt="Canvafinity Pictures" class="w-full h-full object-contain filter brightness-125 contrast-125 drop-shadow-[0_0_24px_rgba(255,255,255,0.2)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtSK8kTxFKOjUM9nuBbFg9Kb6HRKu304gJwCFU8Xl4QEZOL4oIzaD-oykyhW_F39f8YDMgKEwJuJQUogg5xwgGFE1hblm2m7iWu6nc6MyuVP1n-eEJWpCdqIlapkrnisCLlSc-Apb6YB3FLrRoEhGRbPTA6C_19cedweNv-czzry-uOGnpk_gxv624Ivb1uf0L9XkH3OSFCObyhM82QIa5SLei5hoae9DNxXEsu1D7vmOHx8_mMW2IrlPpiaxr6NwRfg"/>
+</div>
+<div class="mt-4 text-[10px] font-normal uppercase tracking-swiss-wide text-white/40 transition-opacity duration-300 opacity-70 group-hover:opacity-0">
+          [ HOVER TO REVEAL CONCEPT ]
+        </div>
+</div>
+<!-- On Hover: Reason Behind The Logo Graphic/Card (Swiss Stark Aesthetic) -->
+<div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 scale-100 blur-[2px] transition-all duration-500 ease-out group-hover:opacity-100 group-hover:blur-0 pointer-events-none group-hover:pointer-events-auto">
+<div class="max-w-md w-full p-8 md:p-10 bg-black/90 backdrop-blur-xl border border-white/10 shadow-none text-left flex flex-col relative overflow-hidden">
+<div class="flex items-center justify-between mb-5 pb-3 border-b border-white/10">
+<span class="text-[10px] font-medium tracking-swiss uppercase text-neutral-400">CONCEPT &amp; ANATOMY</span>
+<span class="text-[10px] tracking-widest text-neutral-500">REF. 001</span>
+</div>
+<h3 class="text-base md:text-lg font-normal tracking-wider text-white uppercase mb-4">THE INFINITE CANVAS</h3>
+<p class="text-xs md:text-sm text-neutral-300 leading-relaxed font-light mb-6 text-balance">
+            Canvafinity synthesizes the expansive potential of the <span class="text-white font-normal">Canvas</span> with the perpetual narrative continuum of <span class="text-white font-normal">Infinity</span>. The continuous looping geometry manifests temporal persistence, quiet rhythm, and unrestrained cinematic vision.
+          </p>
+<div class="flex items-center justify-between text-[9px] font-normal text-neutral-500 uppercase tracking-swiss-wide pt-2 border-t border-white/10">
+<span>EST. 2024</span>
+<span>SWISS ART-HOUSE</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Middle: Interactive CANVAFINITY Footer Trigger -->
+<footer class="w-full flex flex-col items-center justify-center pb-8 pointer-events-auto">
+<button aria-label="About Canvafinity" class="group flex flex-col items-center space-y-1 bg-transparent border-none outline-none cursor-pointer focus:outline-none transition-all duration-300" id="bottom-about-btn" onclick="openAboutModal()">
+<span class="text-xs md:text-sm uppercase tracking-widest-xl text-white/70 group-hover:text-white transition-colors duration-300 font-light">
+          canvafinity
+        </span>
+<span class="text-[9px] uppercase tracking-swiss text-white/30 group-hover:text-white/50 transition-colors duration-300">
+          pictures
+        </span>
 </button>
-</aside>
-<!-- END: LeftMiddleMenuToggle -->
-<!-- BEGIN: NavigationOverlay -->
-<!-- Clean Swiss overlay: dissolved in, no drop shadows, clean pure typography -->
-<div aria-hidden="true" class="fixed inset-0 bg-black z-40 opacity-0 pointer-events-none transition-opacity duration-500 flex flex-col justify-center items-center px-8" data-purpose="navigation-modal" id="nav-overlay">
-<button aria-label="Close Navigation Menu" class="absolute top-10 right-10 text-xs tracking-widest-plus text-neutral-400 hover:text-white uppercase transition-colors p-3" id="menu-close-btn">
-      CLOSE ×
-    </button>
-<nav aria-label="Global Site Navigation" class="flex flex-col items-center text-center space-y-6 md:space-y-8">
-<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-white hover:opacity-50 transition-opacity" href="#films-top">FILMS</a>
-<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">WORK</a>
-<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">EQUIPMENT</a>
-<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">PHOTOGRAPHY</a>
-<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">BLOG</a>
-<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">CONTACT</a>
-<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">ABOUT</a>
-<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">HOME</a>
+</footer>
+</div>
+<!-- Left Middle: Menu Trigger & Completely Flat, Borderless Dissolve Navigation -->
+<div class="fixed left-6 md:left-10 top-1/2 -translate-y-1/2 z-40 flex items-center gap-6">
+<!-- Three lines trigger button -->
+<button aria-expanded="false" aria-label="Toggle Navigation Menu" class="group flex flex-col gap-2 p-3.5 rounded-full bg-black/60 hover:bg-white/10 backdrop-blur-md border border-white/15 hover:border-white/30 transition-all duration-300 focus:outline-none shrink-0 shadow-none" id="menu-toggle-btn">
+<span class="w-6 h-[1px] bg-white group-hover:bg-white transition-all duration-300" id="line-1"></span>
+<span class="w-4 h-[1px] bg-white group-hover:bg-white transition-all duration-300" id="line-2"></span>
+<span class="w-6 h-[1px] bg-white group-hover:bg-white transition-all duration-300" id="line-3"></span>
+<span class="sr-only">Toggle Menu</span>
+</button>
+<!-- Dissolve-In Menu List: Borderless, Shadow-none, Helvetica, No Numbers -->
+<nav class="menu-dissolve opacity-0 -translate-x-2 pointer-events-none p-6 md:p-8 rounded-none bg-black/85 backdrop-blur-2xl border-none shadow-none" id="inline-menu">
+<ul class="flex flex-col space-y-4 md:space-y-5">
+<li>
+<a class="block text-sm md:text-base font-normal tracking-swiss uppercase text-neutral-300 hover:text-white hover:translate-x-1.5 transition-all duration-200" href="#films">
+          FILMS
+        </a>
+</li>
+<li>
+<a class="block text-sm md:text-base font-normal tracking-swiss uppercase text-neutral-300 hover:text-white hover:translate-x-1.5 transition-all duration-200" href="#work">
+          WORK
+        </a>
+</li>
+<li>
+<a class="block text-sm md:text-base font-normal tracking-swiss uppercase text-neutral-300 hover:text-white hover:translate-x-1.5 transition-all duration-200" href="#equipment">
+          EQUIPMENT
+        </a>
+</li>
+<li>
+<a class="block text-sm md:text-base font-normal tracking-swiss uppercase text-neutral-300 hover:text-white hover:translate-x-1.5 transition-all duration-200" href="#photography">
+          PHOTOGRAPHY
+        </a>
+</li>
+<li>
+<a class="block text-sm md:text-base font-normal tracking-swiss uppercase text-neutral-300 hover:text-white hover:translate-x-1.5 transition-all duration-200" href="#blog">
+          BLOG
+        </a>
+</li>
+<li>
+<a class="block text-sm md:text-base font-normal tracking-swiss uppercase text-neutral-300 hover:text-white hover:translate-x-1.5 transition-all duration-200" href="#contact">
+          CONTACT
+        </a>
+</li>
+<li>
+<a class="block text-sm md:text-base font-normal tracking-swiss uppercase text-neutral-300 hover:text-white hover:translate-x-1.5 transition-all duration-200" href="#about" onclick="openAboutModal(); return false;">
+          ABOUT
+        </a>
+</li>
+</ul>
 </nav>
 </div>
-<!-- END: NavigationOverlay -->
-<!-- BEGIN: MainContent -->
-<main class="w-full relative">
-<!-- BEGIN: FilmsCarouselHero -->
-<section class="min-h-screen w-full relative flex flex-col justify-center px-6 md:px-24 py-20 lg:py-0 border-b border-neutral-900" data-purpose="films-hero-carousel" id="films-top">
-<div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-<!-- Left Column: Synchronized Metadata -->
-<div class="lg:col-span-6 order-2 lg:order-1 flex flex-col justify-center space-y-6 md:space-y-8 pl-0 md:pl-8">
-<!-- Film Indicator / Meta Tags -->
-<div class="flex items-center space-x-3 text-xs tracking-widest-plus text-neutral-400 uppercase">
-<span id="film-index-display">01</span>
-<span class="text-neutral-600">/</span>
-<span>02</span>
-<span class="text-neutral-700 mx-2">—</span>
-<span class="text-neutral-300" id="film-meta-specs">2024 · 112 MINS · 35MM NOIR</span>
+<!-- Right Middle: Cinematic Carousel Switcher / Play Indicator -->
+<div class="fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-30 hidden sm:flex flex-col items-center gap-3">
+<button class="w-1.5 h-1.5 rounded-full bg-white transition-all duration-300 hover:scale-125" id="dot-0" onclick="setSlide(0)" title="Shot 01"></button>
+<button class="w-1.5 h-1.5 rounded-full bg-white/25 transition-all duration-300 hover:scale-125" id="dot-1" onclick="setSlide(1)" title="Shot 02"></button>
+<button class="w-1.5 h-1.5 rounded-full bg-white/25 transition-all duration-300 hover:scale-125" id="dot-2" onclick="setSlide(2)" title="Shot 03"></button>
+<div class="h-8 w-[1px] bg-white/15 my-1"></div>
+<span class="text-[9px] font-normal uppercase text-white/30 [writing-mode:vertical-rl] tracking-swiss">STILLS</span>
 </div>
-<!-- Dynamic Title Header -->
-<div class="space-y-2">
-<p class="text-xs uppercase tracking-widest-plus text-neutral-500">Directed by Akhil J Narayanan</p>
-<h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light uppercase tracking-tight leading-none text-white transition-all duration-300" id="film-title">
-              Echoes of Silence
-            </h1>
+<!-- Stark Minimalist About Modal (Triggered by bottom Canvafinity click) -->
+<div class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-500 flex items-center justify-center p-6" id="about-modal">
+<div class="max-w-lg w-full bg-black border border-white/15 p-8 md:p-12 text-left relative shadow-none">
+<button aria-label="Close About" class="absolute top-6 right-6 text-white/50 hover:text-white text-xs font-normal tracking-swiss uppercase transition-colors" onclick="closeAboutModal()">
+      CLOSE [×]
+    </button>
+<div class="text-[10px] font-medium tracking-swiss-wide text-neutral-400 uppercase mb-3">STUDIO PROFILE</div>
+<h2 class="text-xl md:text-2xl font-light tracking-wide uppercase text-white mb-6">CANVAFINITY PICTURES</h2>
+<div class="space-y-4 text-xs md:text-sm text-neutral-300 font-light leading-relaxed mb-8">
+<p>
+        Canvafinity Pictures is an independent cinematic production atelier focused on auteur-driven cinema, architectural composition, and long-form visual narratives.
+      </p>
+<p>
+        Operating across narrative features, fine-art stills, and experimental celluloid, the studio adheres to stark Swiss minimalism: reduction of excess to amplify emotional clarity.
+      </p>
 </div>
-<!-- Dynamic Film Synopsis -->
-<p class="text-neutral-400 font-light text-sm md:text-base leading-relaxed max-w-xl pr-4" id="film-synopsis">
-            A neo-noir crime drama unfolding through the neon-drenched downpours of nocturnal Tokyo. An estranged detective navigates recursive architectural labyrinths and fractured memories in search of a missing voice.
-          </p>
-<!-- Action and External YouTube Links -->
-<div class="pt-4 flex flex-wrap items-center gap-6">
-<a class="inline-flex items-center space-x-3 text-xs tracking-widest-plus uppercase border border-white/80 px-7 py-3.5 hover:bg-white hover:text-black transition-all duration-300" data-purpose="external-watch-action" href="https://www.youtube.com" id="youtube-button" rel="noopener noreferrer" target="_blank">
-<!-- Minimal Inline YouTube Vector Icon -->
-<svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24">
-<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
-</svg>
-<span>Watch on YouTube</span>
-</a>
-<a class="text-xs uppercase tracking-widest-plus text-neutral-400 hover:text-white underline underline-offset-8 transition-colors" href="#deep-dive">
-              Stills &amp; Notes ↓
-            </a>
-</div>
-<!-- Carousel Controls: Prev, Next & Pagination -->
-<div class="flex items-center space-x-6 pt-6 border-t border-neutral-900" data-purpose="carousel-controls">
-<button aria-label="Previous Film" class="text-xs tracking-editorial uppercase text-neutral-400 hover:text-white flex items-center space-x-2 transition-colors p-1" id="prev-slide-btn">
-<span>←</span> <span>PREV</span>
-</button>
-<div class="flex items-center space-x-2">
-<button aria-label="Select Film 1" class="w-8 h-[2px] bg-white transition-all" id="dot-0"></button>
-<button aria-label="Select Film 2" class="w-8 h-[2px] bg-neutral-700 hover:bg-neutral-500 transition-all" id="dot-1"></button>
-</div>
-<button aria-label="Next Film" class="text-xs tracking-editorial uppercase text-neutral-400 hover:text-white flex items-center space-x-2 transition-colors p-1" id="next-slide-btn">
-<span>NEXT</span> <span>→</span>
-</button>
-</div>
-</div>
-<!-- Right Column: Poster Presentation Frame -->
-<div class="lg:col-span-6 order-1 lg:order-2 flex justify-center items-center">
-<div class="relative w-full max-w-sm md:max-w-md aspect-[848/1264] border border-neutral-800 bg-neutral-950 p-2 overflow-hidden shadow-2xl">
-<!-- Poster 1: Echoes of Silence -->
-<img alt="Minimalist auteur film festival movie poster titled 'ECHOES OF SILENCE', atmospheric moody neo-noir cinema, rainy neon city street reflection, dark subtle typography at bottom, 35mm film grain aesthetic" class="carousel-slide absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover opacity-100 scale-100 duration-700" id="poster-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-OgaHv5fh1kLScASPAVdkJLAm-5G0zmDl0AKQUIWxB-CRh-yd3_TRcFapUyTyv-IzWsx8ovKTqmcq7TdLsEfdrHW3FE2qfX9tD5f4EYajeHmx8N1tUaKJvVDofSf9vfrRsBYx3a1RHAfQBaaBP4pHs9EVMZmeUzHb0m84xNGH8gXU6wnMgboQBA67FsA0wxp5he22lWHwbr4p6HC5Len-TFnh-MK3MoFsoNLVxE5-5tG2-RYekgJE"/>
-<!-- Poster 2: Solitary Horizons -->
-<img alt="Minimalist cinematic art-house movie poster titled 'SOLITARY HORIZONS', vast misty Scottish highlands in golden hour fog, tiny distant silhouettes, serene melancholic indie drama aesthetic, clean typography" class="carousel-slide absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover opacity-0 scale-95 duration-700 pointer-events-none" id="poster-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1oMyY8aabPC0t6BCfhKcisJqtLDHQNiWXCT1S9fKeVm3g8pM2VF62UOdsHBv3OCDuYa9oH6WomQmJLjoACzH4Gkb-gIIqrJb8RBMTWe4l3paIrTyvgnJq738k7O_IMsdydDV_b6mhHNNwSwfxTBoF9T7TVYNi3KOsLCxeMxi09Lq4Y3OEFY-PTvb6Hb3lrUgeZWPIy_y_o1vqPXXpeWeUHBonCiEsWTO8Y-TVWSqfSI1rL7MfEOm2"/>
-</div>
-</div>
-</div>
-<!-- Scroll cue icon -->
-<div class="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center opacity-40">
-<span class="text-[10px] tracking-widest-plus uppercase text-neutral-400">Scroll</span>
-<div class="w-[1px] h-6 bg-gradient-to-b from-white to-transparent mt-2"></div>
-</div>
-</section>
-<!-- END: FilmsCarouselHero -->
-<!-- BEGIN: DeepDiveStillsAndNotes -->
-<section class="w-full px-6 md:px-24 py-28 max-w-7xl mx-auto" data-purpose="film-stills-and-statement" id="deep-dive">
-<!-- Section Header -->
-<div class="border-b border-neutral-900 pb-6 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="grid grid-cols-2 gap-6 pt-6 border-t border-white/10 text-[10px] tracking-swiss uppercase text-neutral-400 font-normal">
 <div>
-<span class="text-xs tracking-widest-plus uppercase text-neutral-500 block mb-2">Cinematography &amp; Process</span>
-<h2 class="text-3xl md:text-4xl font-light tracking-tight text-white uppercase">Stills &amp; Notes</h2>
+<div class="text-white mb-1">LOCATION</div>
+<div>ZURICH / LOS ANGELES</div>
 </div>
-<p class="text-xs uppercase tracking-editorial text-neutral-400">
-          Format: 35mm Anamorphic 2.39:1 · Kodak 500T
-        </p>
-</div>
-<!-- Master Film Stills Gallery -->
-<div class="space-y-16 mb-24">
-<!-- Still 1: Urban Neo-Noir Rain -->
-<div class="space-y-4">
-<div class="w-full aspect-[16/9] overflow-hidden border border-neutral-900 bg-neutral-950">
-<img alt="Cinematic moody night shot, urban rain neo-noir neon reflection on pavement, 35mm cinematography aesthetic, dramatic cinematic lighting" class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-[1.01]" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1Wh1EODO5AxeH_s3zLYeHwXsDOf-Wic_m1YSYhdPbpD_yWWdfgDtCiqoOCi5pMrBKr7Sc7EwMuzZ0S-ZuDZUx9Jfpi5HgccJPDcv9VQCEpYmWdIx5rVbievBwB5dP_l4hh8bh4-gegZsjBPL8cCvdGU7qLUcSCaFqAC4W77M4x6lx5QPbRq_FeEUFGSMvA9saNmTQfbhKDFK-cYZwPKlzKOCUXV3DjBIVPTogs2DChc7XKtQMpX2x8_ovU"/>
-</div>
-<div class="flex justify-between text-xs text-neutral-500 font-mono tracking-widest">
-<span>FIG. 01 — RAIN REFLECTIONS IN SHINJUKU</span>
-<span>2.39:1 LETTERBOX</span>
-</div>
-</div>
-<!-- Still 2: Scottish Highlands Mist -->
-<div class="space-y-4">
-<div class="w-full aspect-[16/9] overflow-hidden border border-neutral-900 bg-neutral-950">
-<img alt="Cinematic wide master shot from an indie drama film, golden hour hazy sunlight filtering through mist, slow cinema aesthetic, 35mm film grain, beautiful color grading" class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-[1.01]" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1X4kwAXa-6YVXwF6LXegR1_G_R592CACMQ7YqccRQpV34XFiOKUt0MMvj4Dya5oUpbdwcYcj8w9A54UhnXaW5CAD2_Rq2o9n0e-0tbRc1l0xNMfV0LiSJvMQK1HAi-snzAEF34vWy8chfiIU3JmIv_d1vdoPjIltZhCjlCjcwd8oWWxNlLe8a4TrXzbVRMQ3LweV7-dcKHBg8S3UALcdGKd9Q4eg5inCieDNzKg6Vlsu1DvaKkOZ_jyVQ"/>
-</div>
-<div class="flex justify-between text-xs text-neutral-500 font-mono tracking-widest">
-<span>FIG. 02 — THE VAST PERIPHERY OF GLEN COE</span>
-<span>NATURAL DAWN ILLUMINATION</span>
+<div>
+<div class="text-white mb-1">INQUIRIES</div>
+<div>CONTACT@CANVAFINITY.COM</div>
 </div>
 </div>
 </div>
-<!-- Director's Writing & Critical Statement -->
-<article class="grid grid-cols-1 lg:grid-cols-12 gap-10 border-t border-neutral-900 pt-16" data-purpose="director-statement">
-<div class="lg:col-span-4">
-<span class="text-xs uppercase tracking-widest-plus text-neutral-500 block mb-2">Essay / Reflection</span>
-<h3 class="text-2xl font-light tracking-tight text-white uppercase leading-snug">
-            Director's Writing &amp; Grammar of Absence
-          </h3>
-<p class="text-xs tracking-editorial text-neutral-400 mt-4 uppercase">Akhil J Narayanan</p>
 </div>
-<div class="lg:col-span-8 space-y-6 text-neutral-300 font-light text-base leading-relaxed">
-<p>
-            Cinema begins where verbal language falters. In framing both <em class="text-white italic">Echoes of Silence</em> and <em class="text-white italic">Solitary Horizons</em>, the intent was never narrative conciseness, but rather an architectural study of human containment. The frame functions as an emotional container: whether defined by the dense vertical walls and waterlogged tarmac of metropolitan alleys, or by the crushing immensity of Scottish highlands soaked in morning mist.
-          </p>
-<p>
-            We relied on vintage anamorphic lenses to gently distend peripheral space, letting neon bleed and dawn light disperse naturally onto chemical grain. The audio landscape deliberately privileges low-frequency environmental rumble and silence over incidental score. Silence is not treated as void, but as an active physical presence—an acoustic reverberation of what characters cannot bear to say aloud.
-          </p>
-<p class="text-neutral-500 text-sm italic pt-4 border-t border-neutral-900">
-            "We construct images not to depict what already exists, but to preserve the mood of its passing."
-          </p>
-</div>
-</article>
-</section>
-<!-- END: DeepDiveStillsAndNotes -->
-</main>
-<!-- END: MainContent -->
-<!-- BEGIN: SiteFooter -->
-<!-- Strict Swiss footer displaying only page title as requested -->
-<footer class="w-full py-20 border-t border-neutral-900 flex justify-center items-center bg-black" data-purpose="page-title-footer">
-<h2 class="text-xs tracking-widest-plus uppercase text-neutral-400 hover:text-white transition-colors select-none">
-      FILMS
-    </h2>
-</footer>
-<!-- END: SiteFooter -->
-<!-- BEGIN: NavigationAndCarouselScript -->
-<script data-purpose="films-page-controller">
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Initial Page Dissolve In
-      const bodyRoot = document.getElementById('body-root');
-      if (bodyRoot) {
-        bodyRoot.classList.remove('opacity-0');
-        bodyRoot.classList.add('opacity-100');
+<!-- Interactive JavaScript for Carousel, Borderless Menu Dissolve, and About Modal -->
+<script>
+    // Inline Dissolve Menu Logic
+    const toggleBtn = document.getElementById('menu-toggle-btn');
+    const menu = document.getElementById('inline-menu');
+    const line1 = document.getElementById('line-1');
+    const line2 = document.getElementById('line-2');
+    const line3 = document.getElementById('line-3');
+    let isMenuOpen = false;
+
+    function openMenu() {
+      isMenuOpen = true;
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      menu.classList.remove('opacity-0', '-translate-x-2', 'pointer-events-none');
+      menu.classList.add('opacity-100', 'translate-x-0', 'pointer-events-auto');
+      
+      line1.classList.add('w-7');
+      line2.classList.add('opacity-40');
+      line3.classList.add('w-5');
+    }
+
+    function closeMenu() {
+      isMenuOpen = false;
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('opacity-100', 'translate-x-0', 'pointer-events-auto');
+      menu.classList.add('opacity-0', '-translate-x-2', 'pointer-events-none');
+      
+      line1.classList.remove('w-7');
+      line2.classList.remove('opacity-40');
+      line3.classList.remove('w-5');
+    }
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isMenuOpen) {
+        closeMenu();
+      } else {
+        openMenu();
       }
-
-      // 2. Navigation Drawer Toggle Logic
-      const menuTrigger = document.getElementById('menu-trigger-btn');
-      const menuClose = document.getElementById('menu-close-btn');
-      const navOverlay = document.getElementById('nav-overlay');
-      const navLinks = document.querySelectorAll('.nav-link');
-
-      function openMenu() {
-        navOverlay.classList.remove('opacity-0', 'pointer-events-none');
-        navOverlay.classList.add('opacity-100', 'pointer-events-auto');
-        navOverlay.setAttribute('aria-hidden', 'false');
-        menuTrigger.setAttribute('aria-expanded', 'true');
-      }
-
-      function closeMenu() {
-        navOverlay.classList.add('opacity-0', 'pointer-events-none');
-        navOverlay.classList.remove('opacity-100', 'pointer-events-auto');
-        navOverlay.setAttribute('aria-hidden', 'true');
-        menuTrigger.setAttribute('aria-expanded', 'false');
-      }
-
-      menuTrigger?.addEventListener('click', openMenu);
-      menuClose?.addEventListener('click', closeMenu);
-      navLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-      // 3. Carousel Data & Interactive State
-      const filmsData = [
-        {
-          index: "01",
-          title: "Echoes of Silence",
-          specs: "2024 \u00B7 112 MINS \u00B7 35MM NEO-NOIR",
-          synopsis: "A neo-noir crime drama unfolding through the neon-drenched downpours of nocturnal Tokyo. An estranged detective navigates recursive architectural labyrinths and fractured memories in search of a missing voice.",
-          youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        },
-        {
-          index: "02",
-          title: "Solitary Horizons",
-          specs: "2023 \u00B7 98 MINS \u00B7 INDIE DRAMA",
-          synopsis: "A poetic, meditative indie drama set against the vast, foggy expanse of the Scottish highlands. Two wandering souls encounter the quiet resilience of isolation, reconciliation, and landscape.",
-          youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        }
-      ];
-
-      let currentIndex = 0;
-
-      const poster0 = document.getElementById('poster-0');
-      const poster1 = document.getElementById('poster-1');
-      const indexDisplay = document.getElementById('film-index-display');
-      const specsDisplay = document.getElementById('film-meta-specs');
-      const titleDisplay = document.getElementById('film-title');
-      const synopsisDisplay = document.getElementById('film-synopsis');
-      const ytButton = document.getElementById('youtube-button');
-      const dot0 = document.getElementById('dot-0');
-      const dot1 = document.getElementById('dot-1');
-
-      function updateSlide(index) {
-        currentIndex = index;
-        const film = filmsData[currentIndex];
-
-        // Animate metadata updates
-        if (titleDisplay) {
-          titleDisplay.style.opacity = '0';
-          setTimeout(() => {
-            titleDisplay.textContent = film.title;
-            titleDisplay.style.opacity = '1';
-          }, 150);
-        }
-
-        if (synopsisDisplay) synopsisDisplay.textContent = film.synopsis;
-        if (specsDisplay) specsDisplay.textContent = film.specs;
-        if (indexDisplay) indexDisplay.textContent = film.index;
-        if (ytButton) ytButton.href = film.youtubeUrl;
-
-        // Toggle posters visibility and scale
-        if (currentIndex === 0) {
-          poster0.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-          poster0.classList.add('opacity-100', 'scale-100');
-
-          poster1.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-          poster1.classList.remove('opacity-100', 'scale-100');
-
-          dot0.classList.replace('bg-neutral-700', 'bg-white');
-          dot1.classList.replace('bg-white', 'bg-neutral-700');
-        } else {
-          poster1.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-          poster1.classList.add('opacity-100', 'scale-100');
-
-          poster0.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-          poster0.classList.remove('opacity-100', 'scale-100');
-
-          dot1.classList.replace('bg-neutral-700', 'bg-white');
-          dot0.classList.replace('bg-white', 'bg-neutral-700');
-        }
-      }
-
-      document.getElementById('prev-slide-btn')?.addEventListener('click', () => {
-        const nextIdx = (currentIndex - 1 + filmsData.length) % filmsData.length;
-        updateSlide(nextIdx);
-      });
-
-      document.getElementById('next-slide-btn')?.addEventListener('click', () => {
-        const nextIdx = (currentIndex + 1) % filmsData.length;
-        updateSlide(nextIdx);
-      });
-
-      dot0?.addEventListener('click', () => updateSlide(0));
-      dot1?.addEventListener('click', () => updateSlide(1));
     });
+
+    // About Modal Functions
+    const aboutModal = document.getElementById('about-modal');
+
+    function openAboutModal() {
+      if (isMenuOpen) closeMenu();
+      aboutModal.classList.remove('opacity-0', 'pointer-events-none');
+      aboutModal.classList.add('opacity-100', 'pointer-events-auto');
+    }
+
+    function closeAboutModal() {
+      aboutModal.classList.remove('opacity-100', 'pointer-events-auto');
+      aboutModal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    // Close when clicking outside of menu or modal
+    document.addEventListener('click', (e) => {
+      if (isMenuOpen && !menu.contains(e.target) && !toggleBtn.contains(e.target)) {
+        closeMenu();
+      }
+      if (e.target === aboutModal) {
+        closeAboutModal();
+      }
+    });
+
+    // Escape key closes open elements
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (!aboutModal.classList.contains('opacity-0')) {
+          closeAboutModal();
+        } else if (isMenuOpen) {
+          closeMenu();
+        }
+      }
+    });
+
+    // Background Carousel Logic
+    const slides = [
+      document.getElementById('slide-1'),
+      document.getElementById('slide-2'),
+      document.getElementById('slide-3')
+    ];
+    const dots = [
+      document.getElementById('dot-0'),
+      document.getElementById('dot-1'),
+      document.getElementById('dot-2')
+    ];
+    let currentSlide = 0;
+
+    function setSlide(index) {
+      slides[currentSlide].classList.remove('opacity-100');
+      slides[currentSlide].classList.add('opacity-0');
+      dots[currentSlide].classList.remove('bg-white');
+      dots[currentSlide].classList.add('bg-white/25');
+
+      currentSlide = index;
+
+      slides[currentSlide].classList.remove('opacity-0');
+      slides[currentSlide].classList.add('opacity-100');
+      dots[currentSlide].classList.remove('bg-white/25');
+      dots[currentSlide].classList.add('bg-white');
+    }
+
+    // Auto rotate background carousel every 7 seconds
+    setInterval(() => {
+      const nextIndex = (currentSlide + 1) % slides.length;
+      setSlide(nextIndex);
+    }, 7000);
   </script>
-<!-- END: NavigationAndCarouselScript -->
 </body></html>
