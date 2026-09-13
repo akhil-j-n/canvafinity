@@ -1,246 +1,345 @@
-<!DOCTYPE HTML>
-<!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Canvafinity</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
+<!DOCTYPE html>
 
-				<!-- Header -->
-					<header id="header">
-						<div class="inner">
+<html class="scroll-smooth bg-black text-white" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Films — Akhil J Narayanan | Canvafinity Pictures</title>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+          },
+          letterSpacing: {
+            'widest-plus': '0.35em',
+            'editorial': '0.2em',
+          },
+          colors: {
+            noir: '#000000',
+            carbon: '#0c0c0c',
+            subtle: '#8a8a8a',
+            faint: '#2a2a2a',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Typography & Global Behavior Styles -->
+<style data-purpose="typography">
+    * {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    ::selection {
+      background-color: #ffffff;
+      color: #000000;
+    }
+  </style>
+<!-- Layout & Transition Styles -->
+<style data-purpose="transitions">
+    .fade-layer {
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .carousel-slide {
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-noir text-white min-h-screen relative overflow-x-hidden selection:bg-white selection:text-black font-sans opacity-0 transition-opacity duration-1000" id="body-root">
+<!-- BEGIN: LeftMiddleMenuToggle -->
+<!-- Persistent middle-left trigger identical to home architecture -->
+<aside aria-label="Main Navigation Trigger" class="fixed left-6 md:left-10 top-1/2 -translate-y-1/2 z-50 pointer-events-auto">
+<button aria-controls="nav-overlay" aria-expanded="false" aria-label="Open Navigation Menu" class="group p-3 flex flex-col items-center justify-center gap-1.5 focus:outline-none focus:ring-1 focus:ring-white/40 cursor-pointer" data-purpose="menu-toggle" id="menu-trigger-btn">
+<span class="w-7 h-[1px] bg-white group-hover:w-9 transition-all duration-300"></span>
+<span class="w-7 h-[1px] bg-white group-hover:w-9 transition-all duration-300"></span>
+<span class="w-7 h-[1px] bg-white group-hover:w-9 transition-all duration-300"></span>
+</button>
+</aside>
+<!-- END: LeftMiddleMenuToggle -->
+<!-- BEGIN: NavigationOverlay -->
+<!-- Clean Swiss overlay: dissolved in, no drop shadows, clean pure typography -->
+<div aria-hidden="true" class="fixed inset-0 bg-black z-40 opacity-0 pointer-events-none transition-opacity duration-500 flex flex-col justify-center items-center px-8" data-purpose="navigation-modal" id="nav-overlay">
+<button aria-label="Close Navigation Menu" class="absolute top-10 right-10 text-xs tracking-widest-plus text-neutral-400 hover:text-white uppercase transition-colors p-3" id="menu-close-btn">
+      CLOSE ×
+    </button>
+<nav aria-label="Global Site Navigation" class="flex flex-col items-center text-center space-y-6 md:space-y-8">
+<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-white hover:opacity-50 transition-opacity" href="#films-top">FILMS</a>
+<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">WORK</a>
+<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">EQUIPMENT</a>
+<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">PHOTOGRAPHY</a>
+<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">BLOG</a>
+<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">CONTACT</a>
+<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">ABOUT</a>
+<a class="nav-link text-xl md:text-2xl font-light tracking-editorial uppercase text-neutral-400 hover:text-white transition-colors" href="#">HOME</a>
+</nav>
+</div>
+<!-- END: NavigationOverlay -->
+<!-- BEGIN: MainContent -->
+<main class="w-full relative">
+<!-- BEGIN: FilmsCarouselHero -->
+<section class="min-h-screen w-full relative flex flex-col justify-center px-6 md:px-24 py-20 lg:py-0 border-b border-neutral-900" data-purpose="films-hero-carousel" id="films-top">
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<!-- Left Column: Synchronized Metadata -->
+<div class="lg:col-span-6 order-2 lg:order-1 flex flex-col justify-center space-y-6 md:space-y-8 pl-0 md:pl-8">
+<!-- Film Indicator / Meta Tags -->
+<div class="flex items-center space-x-3 text-xs tracking-widest-plus text-neutral-400 uppercase">
+<span id="film-index-display">01</span>
+<span class="text-neutral-600">/</span>
+<span>02</span>
+<span class="text-neutral-700 mx-2">—</span>
+<span class="text-neutral-300" id="film-meta-specs">2024 · 112 MINS · 35MM NOIR</span>
+</div>
+<!-- Dynamic Title Header -->
+<div class="space-y-2">
+<p class="text-xs uppercase tracking-widest-plus text-neutral-500">Directed by Akhil J Narayanan</p>
+<h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light uppercase tracking-tight leading-none text-white transition-all duration-300" id="film-title">
+              Echoes of Silence
+            </h1>
+</div>
+<!-- Dynamic Film Synopsis -->
+<p class="text-neutral-400 font-light text-sm md:text-base leading-relaxed max-w-xl pr-4" id="film-synopsis">
+            A neo-noir crime drama unfolding through the neon-drenched downpours of nocturnal Tokyo. An estranged detective navigates recursive architectural labyrinths and fractured memories in search of a missing voice.
+          </p>
+<!-- Action and External YouTube Links -->
+<div class="pt-4 flex flex-wrap items-center gap-6">
+<a class="inline-flex items-center space-x-3 text-xs tracking-widest-plus uppercase border border-white/80 px-7 py-3.5 hover:bg-white hover:text-black transition-all duration-300" data-purpose="external-watch-action" href="https://www.youtube.com" id="youtube-button" rel="noopener noreferrer" target="_blank">
+<!-- Minimal Inline YouTube Vector Icon -->
+<svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+</svg>
+<span>Watch on YouTube</span>
+</a>
+<a class="text-xs uppercase tracking-widest-plus text-neutral-400 hover:text-white underline underline-offset-8 transition-colors" href="#deep-dive">
+              Stills &amp; Notes ↓
+            </a>
+</div>
+<!-- Carousel Controls: Prev, Next & Pagination -->
+<div class="flex items-center space-x-6 pt-6 border-t border-neutral-900" data-purpose="carousel-controls">
+<button aria-label="Previous Film" class="text-xs tracking-editorial uppercase text-neutral-400 hover:text-white flex items-center space-x-2 transition-colors p-1" id="prev-slide-btn">
+<span>←</span> <span>PREV</span>
+</button>
+<div class="flex items-center space-x-2">
+<button aria-label="Select Film 1" class="w-8 h-[2px] bg-white transition-all" id="dot-0"></button>
+<button aria-label="Select Film 2" class="w-8 h-[2px] bg-neutral-700 hover:bg-neutral-500 transition-all" id="dot-1"></button>
+</div>
+<button aria-label="Next Film" class="text-xs tracking-editorial uppercase text-neutral-400 hover:text-white flex items-center space-x-2 transition-colors p-1" id="next-slide-btn">
+<span>NEXT</span> <span>→</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Poster Presentation Frame -->
+<div class="lg:col-span-6 order-1 lg:order-2 flex justify-center items-center">
+<div class="relative w-full max-w-sm md:max-w-md aspect-[848/1264] border border-neutral-800 bg-neutral-950 p-2 overflow-hidden shadow-2xl">
+<!-- Poster 1: Echoes of Silence -->
+<img alt="Minimalist auteur film festival movie poster titled 'ECHOES OF SILENCE', atmospheric moody neo-noir cinema, rainy neon city street reflection, dark subtle typography at bottom, 35mm film grain aesthetic" class="carousel-slide absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover opacity-100 scale-100 duration-700" id="poster-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-OgaHv5fh1kLScASPAVdkJLAm-5G0zmDl0AKQUIWxB-CRh-yd3_TRcFapUyTyv-IzWsx8ovKTqmcq7TdLsEfdrHW3FE2qfX9tD5f4EYajeHmx8N1tUaKJvVDofSf9vfrRsBYx3a1RHAfQBaaBP4pHs9EVMZmeUzHb0m84xNGH8gXU6wnMgboQBA67FsA0wxp5he22lWHwbr4p6HC5Len-TFnh-MK3MoFsoNLVxE5-5tG2-RYekgJE"/>
+<!-- Poster 2: Solitary Horizons -->
+<img alt="Minimalist cinematic art-house movie poster titled 'SOLITARY HORIZONS', vast misty Scottish highlands in golden hour fog, tiny distant silhouettes, serene melancholic indie drama aesthetic, clean typography" class="carousel-slide absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover opacity-0 scale-95 duration-700 pointer-events-none" id="poster-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1oMyY8aabPC0t6BCfhKcisJqtLDHQNiWXCT1S9fKeVm3g8pM2VF62UOdsHBv3OCDuYa9oH6WomQmJLjoACzH4Gkb-gIIqrJb8RBMTWe4l3paIrTyvgnJq738k7O_IMsdydDV_b6mhHNNwSwfxTBoF9T7TVYNi3KOsLCxeMxi09Lq4Y3OEFY-PTvb6Hb3lrUgeZWPIy_y_o1vqPXXpeWeUHBonCiEsWTO8Y-TVWSqfSI1rL7MfEOm2"/>
+</div>
+</div>
+</div>
+<!-- Scroll cue icon -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center opacity-40">
+<span class="text-[10px] tracking-widest-plus uppercase text-neutral-400">Scroll</span>
+<div class="w-[1px] h-6 bg-gradient-to-b from-white to-transparent mt-2"></div>
+</div>
+</section>
+<!-- END: FilmsCarouselHero -->
+<!-- BEGIN: DeepDiveStillsAndNotes -->
+<section class="w-full px-6 md:px-24 py-28 max-w-7xl mx-auto" data-purpose="film-stills-and-statement" id="deep-dive">
+<!-- Section Header -->
+<div class="border-b border-neutral-900 pb-6 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="text-xs tracking-widest-plus uppercase text-neutral-500 block mb-2">Cinematography &amp; Process</span>
+<h2 class="text-3xl md:text-4xl font-light tracking-tight text-white uppercase">Stills &amp; Notes</h2>
+</div>
+<p class="text-xs uppercase tracking-editorial text-neutral-400">
+          Format: 35mm Anamorphic 2.39:1 · Kodak 500T
+        </p>
+</div>
+<!-- Master Film Stills Gallery -->
+<div class="space-y-16 mb-24">
+<!-- Still 1: Urban Neo-Noir Rain -->
+<div class="space-y-4">
+<div class="w-full aspect-[16/9] overflow-hidden border border-neutral-900 bg-neutral-950">
+<img alt="Cinematic moody night shot, urban rain neo-noir neon reflection on pavement, 35mm cinematography aesthetic, dramatic cinematic lighting" class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-[1.01]" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1Wh1EODO5AxeH_s3zLYeHwXsDOf-Wic_m1YSYhdPbpD_yWWdfgDtCiqoOCi5pMrBKr7Sc7EwMuzZ0S-ZuDZUx9Jfpi5HgccJPDcv9VQCEpYmWdIx5rVbievBwB5dP_l4hh8bh4-gegZsjBPL8cCvdGU7qLUcSCaFqAC4W77M4x6lx5QPbRq_FeEUFGSMvA9saNmTQfbhKDFK-cYZwPKlzKOCUXV3DjBIVPTogs2DChc7XKtQMpX2x8_ovU"/>
+</div>
+<div class="flex justify-between text-xs text-neutral-500 font-mono tracking-widest">
+<span>FIG. 01 — RAIN REFLECTIONS IN SHINJUKU</span>
+<span>2.39:1 LETTERBOX</span>
+</div>
+</div>
+<!-- Still 2: Scottish Highlands Mist -->
+<div class="space-y-4">
+<div class="w-full aspect-[16/9] overflow-hidden border border-neutral-900 bg-neutral-950">
+<img alt="Cinematic wide master shot from an indie drama film, golden hour hazy sunlight filtering through mist, slow cinema aesthetic, 35mm film grain, beautiful color grading" class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-[1.01]" loading="lazy" src="https://lh3.googleusercontent.com/aida/AEtjO1X4kwAXa-6YVXwF6LXegR1_G_R592CACMQ7YqccRQpV34XFiOKUt0MMvj4Dya5oUpbdwcYcj8w9A54UhnXaW5CAD2_Rq2o9n0e-0tbRc1l0xNMfV0LiSJvMQK1HAi-snzAEF34vWy8chfiIU3JmIv_d1vdoPjIltZhCjlCjcwd8oWWxNlLe8a4TrXzbVRMQ3LweV7-dcKHBg8S3UALcdGKd9Q4eg5inCieDNzKg6Vlsu1DvaKkOZ_jyVQ"/>
+</div>
+<div class="flex justify-between text-xs text-neutral-500 font-mono tracking-widest">
+<span>FIG. 02 — THE VAST PERIPHERY OF GLEN COE</span>
+<span>NATURAL DAWN ILLUMINATION</span>
+</div>
+</div>
+</div>
+<!-- Director's Writing & Critical Statement -->
+<article class="grid grid-cols-1 lg:grid-cols-12 gap-10 border-t border-neutral-900 pt-16" data-purpose="director-statement">
+<div class="lg:col-span-4">
+<span class="text-xs uppercase tracking-widest-plus text-neutral-500 block mb-2">Essay / Reflection</span>
+<h3 class="text-2xl font-light tracking-tight text-white uppercase leading-snug">
+            Director's Writing &amp; Grammar of Absence
+          </h3>
+<p class="text-xs tracking-editorial text-neutral-400 mt-4 uppercase">Akhil J Narayanan</p>
+</div>
+<div class="lg:col-span-8 space-y-6 text-neutral-300 font-light text-base leading-relaxed">
+<p>
+            Cinema begins where verbal language falters. In framing both <em class="text-white italic">Echoes of Silence</em> and <em class="text-white italic">Solitary Horizons</em>, the intent was never narrative conciseness, but rather an architectural study of human containment. The frame functions as an emotional container: whether defined by the dense vertical walls and waterlogged tarmac of metropolitan alleys, or by the crushing immensity of Scottish highlands soaked in morning mist.
+          </p>
+<p>
+            We relied on vintage anamorphic lenses to gently distend peripheral space, letting neon bleed and dawn light disperse naturally onto chemical grain. The audio landscape deliberately privileges low-frequency environmental rumble and silence over incidental score. Silence is not treated as void, but as an active physical presence—an acoustic reverberation of what characters cannot bear to say aloud.
+          </p>
+<p class="text-neutral-500 text-sm italic pt-4 border-t border-neutral-900">
+            "We construct images not to depict what already exists, but to preserve the mood of its passing."
+          </p>
+</div>
+</article>
+</section>
+<!-- END: DeepDiveStillsAndNotes -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: SiteFooter -->
+<!-- Strict Swiss footer displaying only page title as requested -->
+<footer class="w-full py-20 border-t border-neutral-900 flex justify-center items-center bg-black" data-purpose="page-title-footer">
+<h2 class="text-xs tracking-widest-plus uppercase text-neutral-400 hover:text-white transition-colors select-none">
+      FILMS
+    </h2>
+</footer>
+<!-- END: SiteFooter -->
+<!-- BEGIN: NavigationAndCarouselScript -->
+<script data-purpose="films-page-controller">
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Initial Page Dissolve In
+      const bodyRoot = document.getElementById('body-root');
+      if (bodyRoot) {
+        bodyRoot.classList.remove('opacity-0');
+        bodyRoot.classList.add('opacity-100');
+      }
 
-							<!-- Logo -->
-								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
-								</a>
+      // 2. Navigation Drawer Toggle Logic
+      const menuTrigger = document.getElementById('menu-trigger-btn');
+      const menuClose = document.getElementById('menu-close-btn');
+      const navOverlay = document.getElementById('nav-overlay');
+      const navLinks = document.querySelectorAll('.nav-link');
 
-							<!-- Nav -->
-								<nav>
-									<ul>
-										<li><a href="#menu">Menu</a></li>
-									</ul>
-								</nav>
+      function openMenu() {
+        navOverlay.classList.remove('opacity-0', 'pointer-events-none');
+        navOverlay.classList.add('opacity-100', 'pointer-events-auto');
+        navOverlay.setAttribute('aria-hidden', 'false');
+        menuTrigger.setAttribute('aria-expanded', 'true');
+      }
 
-						</div>
-					</header>
+      function closeMenu() {
+        navOverlay.classList.add('opacity-0', 'pointer-events-none');
+        navOverlay.classList.remove('opacity-100', 'pointer-events-auto');
+        navOverlay.setAttribute('aria-hidden', 'true');
+        menuTrigger.setAttribute('aria-expanded', 'false');
+      }
 
-				<!-- Menu -->
-					<nav id="menu">
-						<h2>Menu</h2>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
-							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-					</nav>
+      menuTrigger?.addEventListener('click', openMenu);
+      menuClose?.addEventListener('click', closeMenu);
+      navLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<header>
-								<h1>This is Phantom, a free, fully responsive site<br />
-								template designed by <a href="http://html5up.net">HTML5 UP</a>.</h1>
-								<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
-							</header>
-							<section class="tiles">
-								<article class="style1">
-									<span class="image">
-										<img src="images/pic01.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Magna</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style2">
-									<span class="image">
-										<img src="images/pic02.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Lorem</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style3">
-									<span class="image">
-										<img src="images/pic03.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Feugiat</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style4">
-									<span class="image">
-										<img src="images/pic04.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Tempus</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style5">
-									<span class="image">
-										<img src="images/pic05.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Aliquam</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style6">
-									<span class="image">
-										<img src="images/pic06.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Veroeros</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style2">
-									<span class="image">
-										<img src="images/pic07.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Ipsum</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style3">
-									<span class="image">
-										<img src="images/pic08.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Dolor</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style1">
-									<span class="image">
-										<img src="images/pic09.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Nullam</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style5">
-									<span class="image">
-										<img src="images/pic10.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Ultricies</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style6">
-									<span class="image">
-										<img src="images/pic11.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Dictum</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style4">
-									<span class="image">
-										<img src="images/pic12.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Pretium</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-							</section>
-						</div>
-					</div>
+      // 3. Carousel Data & Interactive State
+      const filmsData = [
+        {
+          index: "01",
+          title: "Echoes of Silence",
+          specs: "2024 \u00B7 112 MINS \u00B7 35MM NEO-NOIR",
+          synopsis: "A neo-noir crime drama unfolding through the neon-drenched downpours of nocturnal Tokyo. An estranged detective navigates recursive architectural labyrinths and fractured memories in search of a missing voice.",
+          youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        },
+        {
+          index: "02",
+          title: "Solitary Horizons",
+          specs: "2023 \u00B7 98 MINS \u00B7 INDIE DRAMA",
+          synopsis: "A poetic, meditative indie drama set against the vast, foggy expanse of the Scottish highlands. Two wandering souls encounter the quiet resilience of isolation, reconciliation, and landscape.",
+          youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      ];
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<h2>Get in touch</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<input type="text" name="name" id="name" placeholder="Name" />
-										</div>
-										<div class="field half">
-											<input type="email" name="email" id="email" placeholder="Email" />
-										</div>
-										<div class="field">
-											<textarea name="message" id="message" placeholder="Message"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send" class="primary" /></li>
-									</ul>
-								</form>
-							</section>
-							<section>
-								<h2>Follow</h2>
-								<ul class="icons">
-									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
-									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
-									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-							</section>
-							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</footer>
+      let currentIndex = 0;
 
-			</div>
+      const poster0 = document.getElementById('poster-0');
+      const poster1 = document.getElementById('poster-1');
+      const indexDisplay = document.getElementById('film-index-display');
+      const specsDisplay = document.getElementById('film-meta-specs');
+      const titleDisplay = document.getElementById('film-title');
+      const synopsisDisplay = document.getElementById('film-synopsis');
+      const ytButton = document.getElementById('youtube-button');
+      const dot0 = document.getElementById('dot-0');
+      const dot1 = document.getElementById('dot-1');
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+      function updateSlide(index) {
+        currentIndex = index;
+        const film = filmsData[currentIndex];
 
-	</body>
-</html>
+        // Animate metadata updates
+        if (titleDisplay) {
+          titleDisplay.style.opacity = '0';
+          setTimeout(() => {
+            titleDisplay.textContent = film.title;
+            titleDisplay.style.opacity = '1';
+          }, 150);
+        }
+
+        if (synopsisDisplay) synopsisDisplay.textContent = film.synopsis;
+        if (specsDisplay) specsDisplay.textContent = film.specs;
+        if (indexDisplay) indexDisplay.textContent = film.index;
+        if (ytButton) ytButton.href = film.youtubeUrl;
+
+        // Toggle posters visibility and scale
+        if (currentIndex === 0) {
+          poster0.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+          poster0.classList.add('opacity-100', 'scale-100');
+
+          poster1.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+          poster1.classList.remove('opacity-100', 'scale-100');
+
+          dot0.classList.replace('bg-neutral-700', 'bg-white');
+          dot1.classList.replace('bg-white', 'bg-neutral-700');
+        } else {
+          poster1.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+          poster1.classList.add('opacity-100', 'scale-100');
+
+          poster0.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+          poster0.classList.remove('opacity-100', 'scale-100');
+
+          dot1.classList.replace('bg-neutral-700', 'bg-white');
+          dot0.classList.replace('bg-white', 'bg-neutral-700');
+        }
+      }
+
+      document.getElementById('prev-slide-btn')?.addEventListener('click', () => {
+        const nextIdx = (currentIndex - 1 + filmsData.length) % filmsData.length;
+        updateSlide(nextIdx);
+      });
+
+      document.getElementById('next-slide-btn')?.addEventListener('click', () => {
+        const nextIdx = (currentIndex + 1) % filmsData.length;
+        updateSlide(nextIdx);
+      });
+
+      dot0?.addEventListener('click', () => updateSlide(0));
+      dot1?.addEventListener('click', () => updateSlide(1));
+    });
+  </script>
+<!-- END: NavigationAndCarouselScript -->
+</body></html>
