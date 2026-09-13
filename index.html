@@ -101,32 +101,30 @@
 <div></div>
 <div></div>
 </header>
-<!-- Center Stage: Minimalist Logo with Hover Concept Reveal -->
+<!-- Center Stage: Minimalist Logo with Hover Title Reveal -->
 <main class="w-full flex-1 flex flex-col items-center justify-center pointer-events-auto">
-<div class="group relative cursor-pointer flex flex-col items-center justify-center p-6">
-<!-- Primary Logo State with https://lh3.googleusercontent.com/aida-public/AB6AXuAoSZDEC91UsrIp3RNPz9MO40FX7i29zT443UYZrw2p4eWX1gpX1m9xCIIaV02WJ-i-EKrRFlKr0pMY2UkYQRUCKuxrxa4IWQpzgK28HFAEwfPkJZBeC4modZIT2D_82dwtrjVDGYbqR5N-I4limlocZkH_U8qmsQIFXewFtHySbIPWBRpunr63dwJkqJTYunjopmUlXUYXpFly-pE45Syp6mzbaukJTKdzPrNCcOCk34-9bmYqYyxqTpLxsdRD5T2OVw -->
-<div class="relative transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 group-hover:blur-[2px] flex flex-col items-center">
-<div class="w-48 h-36 md:w-72 md:h-52 relative flex items-center justify-center">
-<img alt="Canvafinity Pictures" class="w-full h-full object-contain filter brightness-125 contrast-125 drop-shadow-[0_0_24px_rgba(255,255,255,0.2)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtSK8kTxFKOjUM9nuBbFg9Kb6HRKu304gJwCFU8Xl4QEZOL4oIzaD-oykyhW_F39f8YDMgKEwJuJQUogg5xwgGFE1hblm2m7iWu6nc6MyuVP1n-eEJWpCdqIlapkrnisCLlSc-Apb6YB3FLrRoEhGRbPTA6C_19cedweNv-czzry-uOGnpk_gxv624Ivb1uf0L9XkH3OSFCObyhM82QIa5SLei5hoae9DNxXEsu1D7vmOHx8_mMW2IrlPpiaxr6NwRfg"/>
-</div>
-<!-- On Hover: Reason Behind The Logo Graphic/Card (Swiss Stark Aesthetic) -->
-<div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 scale-100 blur-[2px] transition-all duration-500 ease-out group-hover:opacity-100 group-hover:blur-0 pointer-events-none group-hover:pointer-events-auto">
-<div class="max-w-md w-full p-8 md:p-10 bg-black/90 backdrop-blur-xl border border-white/10 shadow-none text-left flex flex-col relative overflow-hidden">
-<div class="flex items-center justify-between mb-5 pb-3 border-b border-white/10">
-<span class="text-[10px] font-medium tracking-swiss uppercase text-neutral-400">CONCEPT &amp; ANATOMY</span>
-<span class="text-[10px] tracking-widest text-neutral-500">REF. 001</span>
-</div>
-<h3 class="text-base md:text-lg font-normal tracking-wider text-white uppercase mb-4">THE INFINITE CANVAS</h3>
-<p class="text-xs md:text-sm text-neutral-300 leading-relaxed font-light mb-6 text-balance">
-            Canvafinity synthesizes the expansive potential of the <span class="text-white font-normal">Canvas</span> with the perpetual narrative continuum of <span class="text-white font-normal">Infinity</span>. The continuous looping geometry manifests temporal persistence, quiet rhythm, and unrestrained cinematic vision.
-          </p>
-<div class="flex items-center justify-between text-[9px] font-normal text-neutral-500 uppercase tracking-swiss-wide pt-2 border-t border-white/10">
-<span>EST. 2024</span>
-<span>SWISS ART-HOUSE</span>
-</div>
-</div>
-</div>
-</div>
+  <div class="group relative cursor-pointer flex flex-col items-center justify-center p-6 min-h-[220px] min-w-[300px]">
+    
+    <!-- Primary Graphic Mark (Visible by default, fades out on hover) -->
+    <div class="w-48 h-36 md:w-72 md:h-52 flex items-center justify-center transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 group-hover:blur-[4px]">
+      <img 
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtSK8kTxFKOjUM9nuBbFg9Kb6HRKu304gJwCFU8Xl4QEZOL4oIzaD-oykyhW_F39f8YDMgKEwJuJQUogg5xwgGFE1hblm2m7iWu6nc6MyuVP1n-eEJWpCdqIlapkrnisCLlSc-Apb6YB3FLrRoEhGRbPTA6C_19cedweNv-czzry-uOGnpk_gxv624Ivb1uf0L9XkH3OSFCObyhM82QIa5SLei5hoae9DNxXEsu1D7vmOHx8_mMW2IrlPpiaxr6NwRfg" 
+        alt="Canvafinity Pictures Mark" 
+        class="w-full h-full object-contain filter brightness-125 contrast-125 drop-shadow-[0_0_24px_rgba(255,255,255,0.2)]"
+      />
+    </div>
+
+    <!-- On Hover: "CANVAFINITY PICTURES" Title Reveal (Hidden by default, fades in on hover) -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 scale-95 blur-[4px] transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:blur-0 pointer-events-none">
+      <h1 class="text-xl md:text-3xl font-light tracking-widest-xl text-white uppercase text-center drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">
+        CANVAFINITY
+      </h1>
+      <span class="text-[10px] md:text-xs tracking-swiss-wide text-neutral-400 uppercase mt-2">
+        PICTURES
+      </span>
+    </div>
+
+  </div>
 </main>
 <!-- Bottom Middle: Interactive CANVAFINITY Footer Trigger -->
 <footer class="w-full flex flex-col items-center justify-center pb-8 pointer-events-auto">
